@@ -25,6 +25,8 @@ namespace Content.Client.Chat
             public SpeechBubble.SpeechType Type;
         }
 
+        private bool _visible = true;
+
         /// <summary>
         ///     The max amount of chars allowed to fit in a single speech bubble.
         /// </summary>
@@ -85,6 +87,17 @@ namespace Content.Client.Chat
         /// </summary>
         private readonly Dictionary<EntityUid, SpeechBubbleQueueData> _queuedSpeechBubbles
             = new Dictionary<EntityUid, SpeechBubbleQueueData>();
+
+        public bool Visible
+        {
+            get => _visible;
+            set
+            {
+                _currentChatBox.Visible = value;
+                _speechBubbleRoot.Visible = value;
+                _visible = value;
+            }
+        }
 
         public void Initialize()
         {
