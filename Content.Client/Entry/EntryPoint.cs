@@ -39,6 +39,7 @@ using Content.Shared.Research.Components;
 using Content.Shared.VendingMachines;
 using Content.Shared.Wires;
 using Robust.Client;
+using Robust.Client.CEF;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -113,6 +114,7 @@ namespace Content.Client.Entry
             IoCManager.Resolve<IScreenshotHook>().Initialize();
             IoCManager.Resolve<ChangelogManager>().Initialize();
             IoCManager.Resolve<ViewportManager>().Initialize();
+            IoCManager.Resolve<CefManager>().Initialize();
 
             IoCManager.InjectDependencies(this);
 
@@ -199,6 +201,13 @@ namespace Content.Client.Entry
             IoCManager.Resolve<IUserInterfaceManager>().MainViewport.Visible = false;
 
             SwitchToDefaultState();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+
+            IoCManager.Resolve<CefManager>().Shutdown();
         }
 
         private void SwitchToDefaultState(bool disconnected = false)

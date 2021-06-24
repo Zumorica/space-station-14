@@ -22,6 +22,7 @@ using Content.Shared.Alert;
 using Content.Shared.Module;
 using Content.Shared.Notification;
 using Content.Shared.Notification.Managers;
+using Robust.Client.CEF;
 using Robust.Shared.IoC;
 
 namespace Content.Client.IoC
@@ -52,6 +53,7 @@ namespace Content.Client.IoC
             IoCManager.Register<IVoteManager, VoteManager>();
             IoCManager.Register<ChangelogManager, ChangelogManager>();
             IoCManager.Register<ViewportManager, ViewportManager>();
+            IoCManager.Register<CefManager, CefManager>();
         }
     }
 }
