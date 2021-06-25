@@ -239,6 +239,7 @@ namespace Content.Client.Entry
                 case ModUpdateLevel.FramePreEngine:
                     IoCManager.Resolve<IClientNotifyManager>().FrameUpdate(frameEventArgs);
                     IoCManager.Resolve<IChatManager>().FrameUpdate(frameEventArgs);
+                    IoCManager.Resolve<CefManager>().Update();
                     break;
             }
         }
