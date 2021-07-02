@@ -16,12 +16,14 @@ namespace Content.Client
 
             var browser = new BrowserControl();
 
+            if (args.Length < 1)
+                return;
 
             browser.MouseFilter = Control.MouseFilterMode.Stop;
             window.MouseFilter = Control.MouseFilterMode.Pass;
             window.Contents.AddChild(browser);
 
-            browser.Browse("https://google.com");
+            browser.Browse(args[0]);
 
             window.Open();
         }
