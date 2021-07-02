@@ -1,4 +1,5 @@
 using Robust.Client.CEF;
+using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Console;
 
@@ -15,6 +16,9 @@ namespace Content.Client
 
             var browser = new BrowserControl();
 
+
+            browser.MouseFilter = Control.MouseFilterMode.Stop;
+            window.MouseFilter = Control.MouseFilterMode.Pass;
             window.Contents.AddChild(browser);
 
             browser.Browse("https://google.com");
